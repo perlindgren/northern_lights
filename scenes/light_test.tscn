@@ -2,11 +2,20 @@
 
 [ext_resource type="TileSet" uid="uid://h03uhaaq10ki" path="res://materials/basic_tiles_white.tres" id="1_krt52"]
 [ext_resource type="TileSet" uid="uid://cax80lhmvb5x2" path="res://materials/basic_tiles.tres" id="2_wjket"]
+[ext_resource type="Texture2D" uid="uid://bsw84j0sf0w4s" path="res://materials/smooth_circular_light.tres" id="3_gtwfc"]
 [ext_resource type="Texture2D" uid="uid://16rbgg85mpqy" path="res://materials/circular_light_gradient.tres" id="3_yrto3"]
 [ext_resource type="Texture2D" uid="uid://dec68h0pvv4c1" path="res://icon.svg" id="4_wjket"]
+[ext_resource type="Script" uid="uid://vu7jn87flm3t" path="res://scenes/player.gd" id="6_jalcx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_srqkv"]
-polygon = PackedVector2Array(-63, -64, 61, -64, 61, 62, -63, 62)
+polygon = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u6ppd"]
+width = 32
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srqkv"]
+size = Vector2(32, 32)
 
 [node name="LightTest" type="Node2D" unique_id=1942798503]
 
@@ -24,12 +33,12 @@ position = Vector2(274, 277)
 color = Color(0.22352941, 0.22745098, 0.5019608, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1575326821]
-position = Vector2(371, 291.00003)
-scale = Vector2(1.4140625, 1.421875)
+position = Vector2(284, 295)
+energy = 0.78
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 0.9
-texture = ExtResource("3_yrto3")
+texture = ExtResource("3_gtwfc")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1718966785]
 position = Vector2(226, 210)
@@ -45,3 +54,30 @@ occluder = SubResource("OccluderPolygon2D_srqkv")
 
 [node name="Icon" type="Sprite2D" parent="Node2D" unique_id=1843947560]
 texture = ExtResource("4_wjket")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=440782063]
+position = Vector2(254, 539)
+collision_layer = 256
+motion_mode = 1
+script = ExtResource("6_jalcx")
+
+[node name="TextureRect" type="TextureRect" parent="Player" unique_id=256992216]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_u6ppd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=249999621]
+shape = SubResource("RectangleShape2D_srqkv")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1164611323]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
