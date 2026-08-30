@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://6fd4q6sajtb1" path="res://assets/sprites/basic_tiles.png" id="1_fpbeu"]
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_fpbeu"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 1, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 5, 0, 0, 589829, 0, 0, 6, 0, 0, 589830, 0, 0, 7, 0, 0, 589831, 0, 0, 8, 0, 0, 589832, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 524297, 0, 0, 589833, 0, 0)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fpbeu"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
@@ -40,3 +43,4 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 256
 sources/0 = SubResource("TileSetAtlasSource_l1g8i")
+pattern_0 = SubResource("TileMapPattern_fpbeu")

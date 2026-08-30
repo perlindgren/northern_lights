@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ccp6d1n2kb0pk"]
+
+[ext_resource type="Texture2D" uid="uid://bsw84j0sf0w4s" path="res://materials/smooth_circular_light.tres" id="1_4j3ch"]
+[ext_resource type="Script" uid="uid://cjk0jb74iarw1" path="res://scenes/point_light.gd" id="2_7d45d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_srqkv"]
+radius = 64.0
+
+[node name="PointLight" type="PointLight2D" unique_id=692683483]
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("1_4j3ch")
+script = ExtResource("2_7d45d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=951088011 groups=["PointLight"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2109666783]
+shape = SubResource("CircleShape2D_srqkv")

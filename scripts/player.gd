@@ -16,10 +16,9 @@ func _ready() -> void:
 	print("hitbox ", hitbox)
 
 func _on_light_entered(area: Area2D) -> void:
-	print("_on_light_entered ", area)
 	if area.is_in_group("PointLight"):
 		lit_by_lights.append(area)
-		print("Sprite stepped into the light!")
+		print("Sprite stepped into the light!, area ", area )
 
 func _on_light_exited(area: Area2D) -> void:
 	print("_on_light_exited ", area)
@@ -29,19 +28,15 @@ func _on_light_exited(area: Area2D) -> void:
 			print("Sprite is hidden in darkness.")
 
 func check_if_lit() -> bool:
-	for light_area in lit_by_lights:
+	# print("check_if_lit ", lit_by_lights.size())
+	for light in lit_by_lights:
 		# Point the raycast from the player's center to the light source center
+		print("light area ", light)
+		
 		for ray in rays.get_children():
-		
-		#ray.global_position = global_position
-			ray.target_position = light_area.global_position - ray.global_position
-		
-			print("ray from ", ray.global_position)
-			print("ray to ", ray.target_position)
-			
-			if ray.target_position.length() < 64:
+			ray.target_position = light.global_position - ray.global_position
+			if ray.target_position.length() < light.get_parent().radius:
 				ray.force_raycast_update()
-		
 				# If the ray didn't hit a wall, the light path is clear!
 				if not ray.is_colliding():
 					print("distance ", ray.target_position.length())
@@ -64,7 +59,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if check_if_lit():
-		print("is lit")
 		modulate = Color(1, 0, 0, 1)
 	else:
 		modulate = Color.WHITE
