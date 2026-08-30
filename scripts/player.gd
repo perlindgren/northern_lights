@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var friction : float = 1000.0
 
 @onready var hitbox  = $"Area2D"
-@onready var ray: RayCast2D = $RayCast2D
+@onready var rays = $RayCasts
 
 var lit_by_lights: Array[Area2D] = []
 
@@ -31,17 +31,21 @@ func _on_light_exited(area: Area2D) -> void:
 func check_if_lit() -> bool:
 	for light_area in lit_by_lights:
 		# Point the raycast from the player's center to the light source center
-		ray.global_position = global_position
-		ray.target_position = light_area.global_position - global_position
+		for ray in rays.get_children():
 		
-		print("ray from ", ray.global_position)
-		print("ray to ", ray.target_position)
+		#ray.global_position = global_position
+			ray.target_position = light_area.global_position - ray.global_position
 		
-		ray.force_raycast_update()
+			print("ray from ", ray.global_position)
+			print("ray to ", ray.target_position)
+			
+			if ray.target_position.length() < 64:
+				ray.force_raycast_update()
 		
-		# If the ray didn't hit a wall, the light path is clear!
-		if not ray.is_colliding():
-			return true
+				# If the ray didn't hit a wall, the light path is clear!
+				if not ray.is_colliding():
+					print("distance ", ray.target_position.length())
+					return true
 			
 	return false
 

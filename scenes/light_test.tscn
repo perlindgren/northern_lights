@@ -100,4 +100,16 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D" unique_id=674608217]
 shape = SubResource("RectangleShape2D_srqkv")
 
-[node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=2138054157]
+[node name="RayCasts" type="Node2D" parent="Player" unique_id=795041886]
+
+[node name="RayCast2D1" type="RayCast2D" parent="Player/RayCasts" unique_id=2138054157]
+position = Vector2(-16, -16)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Player/RayCasts" unique_id=660309825]
+position = Vector2(16, -16)
+
+[node name="RayCast2D3" type="RayCast2D" parent="Player/RayCasts" unique_id=722602172]
+position = Vector2(16, 16)
+
+[node name="RayCast2D4" type="RayCast2D" parent="Player/RayCasts" unique_id=960964821]
+position = Vector2(-16, 16)
