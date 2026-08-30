@@ -23,9 +23,14 @@ window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+PointLight=""
+
 [layer_names]
 
 2d_physics/layer_1="Wall"
+2d_physics/layer_2="Light"
 2d_physics/layer_9="Player"
 
 [physics]

@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bsw84j0sf0w4s" path="res://materials/smooth_circular_light.tres" id="3_gtwfc"]
 [ext_resource type="Texture2D" uid="uid://16rbgg85mpqy" path="res://materials/circular_light_gradient.tres" id="3_yrto3"]
 [ext_resource type="Texture2D" uid="uid://dec68h0pvv4c1" path="res://icon.svg" id="4_wjket"]
-[ext_resource type="Script" uid="uid://vu7jn87flm3t" path="res://scenes/player.gd" id="6_jalcx"]
+[ext_resource type="Script" uid="uid://vu7jn87flm3t" path="res://scripts/player.gd" id="6_jalcx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_srqkv"]
+radius = 64.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_srqkv"]
 polygon = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
@@ -33,6 +36,7 @@ position = Vector2(274, 277)
 color = Color(0.22352941, 0.22745098, 0.5019608, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1575326821]
+visible = false
 position = Vector2(284, 295)
 energy = 0.78
 shadow_enabled = true
@@ -44,6 +48,13 @@ texture = ExtResource("3_gtwfc")
 position = Vector2(226, 210)
 shadow_enabled = true
 texture = ExtResource("3_yrto3")
+
+[node name="Area2D" type="Area2D" parent="PointLight2D2" unique_id=1614039012 groups=["PointLight"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D2/Area2D" unique_id=1291346993]
+shape = SubResource("CircleShape2D_srqkv")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=429630885]
 position = Vector2(420, 305)
@@ -81,3 +92,12 @@ shape = SubResource("RectangleShape2D_srqkv")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1164611323]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="Player" unique_id=300364059]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D" unique_id=674608217]
+shape = SubResource("RectangleShape2D_srqkv")
+
+[node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=2138054157]
