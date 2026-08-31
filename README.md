@@ -11,7 +11,24 @@ A small experiment to showcase lighting and light area detection in Godot 4.7.1.
 Todo:
 - Cone lights, useful to enemy/player FOV.
 - Packaging as a reusable plugin.
-   
+
+## Example Project
+
+Top down 2D scene with:
+
+- Animated light sources, with shadow casting (occlusion).
+- Simple `CharacterBody2D` player (WASD/controller). 
+    - Physics based collision to obstacles.
+    - $M$ point border detection, tinting the player red when lit by ray.
+
+### Unlit
+
+![unlit](screenshots/unlit.png)
+
+### Lit
+![lit](screenshots/lit.png)
+
+
 ## Content Declaration
 
 - All assets created from scratch without use of AI.
