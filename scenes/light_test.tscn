@@ -50,22 +50,7 @@ fill_to = Vector2(1, 0.25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jalcx"]
 shader = ExtResource("8_1xtft")
-shader_parameter/cone_angle_deg = 72.00000342
-shader_parameter/cone_direction_deg = 0.0
-shader_parameter/light_radius = 1000.0
-shader_parameter/attenuation_falloff = 5.0
-
-[sub_resource type="Gradient" id="Gradient_1xtft"]
-offsets = PackedFloat32Array(0.002469136, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_u6ppd"]
-gradient = SubResource("Gradient_1xtft")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
+shader_parameter/cone_light_color = Color(1, 1, 1, 1)
 
 [node name="LightTest" type="Node2D" unique_id=1942798503]
 script = ExtResource("1_gtwfc")
@@ -182,7 +167,17 @@ position = Vector2(105, 906)
 texture = ExtResource("2_jalcx")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2040341023]
-position = Vector2(105, 898)
+position = Vector2(103, 898)
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_u6ppd")
 script = ExtResource("9_kqc4e")
+fov_angle = 53.934
+falloff_exponent = 1.61
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1281766631]
+position = Vector2(-10, 960)
+shadow_enabled = true
+script = ExtResource("9_kqc4e")
+fov_angle = 53.934
+intensity_radius = 100.0
+falloff_exponent = 0.959
+follows_mouse = true
