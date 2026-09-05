@@ -10,7 +10,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qetay"]
 shader = ExtResource("3_3kwkb")
 shader_parameter/emissive_strength = 0.0
-shader_parameter/receiver_mask = 0
+shader_parameter/receiver_mask = 1
 shader_parameter/self_shadow = false
 shader_parameter/self_rect_count = 0
 shader_parameter/self_rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -50,8 +50,9 @@ color = Color(0.4955091, 0.4955091, 0.4955091, 1)
 metadata/_custom_type_script = "uid://dtbtq2iowg33y"
 
 [node name="Node2D" type="Node2D" parent="." unique_id=291295598]
-position = Vector2(524, 382)
+position = Vector2(128, 128)
 script = ExtResource("2_55l8b")
+pos = Vector2(10, 0)
 
 [node name="SubViewport" type="SubViewport" parent="Node2D" unique_id=1256361637]
 size = Vector2i(256, 256)
@@ -59,10 +60,8 @@ render_target_update_mode = 4
 
 [node name="LitSprite2D" type="Sprite2D" parent="Node2D/SubViewport" unique_id=2083660804]
 material = SubResource("ShaderMaterial_qetay")
-texture = ExtResource("2_l5s8t")
 script = ExtResource("4_qetay")
 lit_version = "1.1.3"
-receiver_mask = 0
 metadata/_custom_type_script = "uid://drrhypxeb6nsg"
 
 [node name="LitSprite2D" type="Sprite2D" parent="Node2D" unique_id=1151841026]
@@ -73,7 +72,8 @@ lit_version = "1.1.3"
 metadata/_custom_type_script = "uid://drrhypxeb6nsg"
 
 [node name="LitPointLight2D" type="Node2D" parent="." unique_id=1256539587]
-position = Vector2(466, 322)
+position = Vector2(128, 128)
 script = ExtResource("6_p25op")
 lit_version = "1.1.3"
+height = 256.0
 metadata/_custom_type_script = "uid://cpa2qb3trjq4k"
