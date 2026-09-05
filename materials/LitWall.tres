@@ -1,0 +1,47 @@
+[gd_resource type="TileSet" format=3 uid="uid://cflwvklcyufr7"]
+
+[ext_resource type="Texture2D" uid="uid://6fd4q6sajtb1" path="res://assets/sprites/basic_tiles.png" id="1_vcrq1"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_fpbeu"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 1, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 5, 0, 0, 589829, 0, 0, 6, 0, 0, 589830, 0, 0, 7, 0, 0, 589831, 0, 0, 8, 0, 0, 589832, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 524297, 0, 0, 589833, 0, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fpbeu"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vuxto"]
+polygon = PackedVector2Array(16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xpedb"]
+polygon = PackedVector2Array(16, 0.8458481, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_k7ckc"]
+polygon = PackedVector2Array(-16, -0.15784454, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipgdm"]
+resource_name = "Basic Tiles"
+texture = ExtResource("1_vcrq1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fpbeu")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+1:0/next_alternative_id = 4
+1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_vuxto")
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16)
+2:0/next_alternative_id = 4
+2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_xpedb")
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 0, 16, 16, -16, 16, -16, 16)
+3:0/next_alternative_id = 4
+3:0/0 = 0
+3:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_k7ckc")
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, 0)
+
+[resource]
+tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
+occlusion_layer_0/sdf_collision = true
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 256
+sources/0 = SubResource("TileSetAtlasSource_ipgdm")
+pattern_0 = SubResource("TileMapPattern_fpbeu")
